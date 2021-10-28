@@ -19,6 +19,10 @@ export default {
 
 ## Try it
 
+An example barebone app exists at `./example-app`. You can `npm run build` here and install the extension.
+
+### To try with your own app:
+
 Install the adapter and `npm run build`. Go to your browser's extension page and install unpacked extension - point it at the build directory within your app.
 
 If you get an error about `_app` being a disallowed folder, delete `_app` from within the build dir. It appears there sometimes and I'm not sure why - I'll fix as soon as possible!

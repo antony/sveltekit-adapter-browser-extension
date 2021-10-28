@@ -2,7 +2,7 @@
   "name": "sveltekit-adapter-browser-extension",
   "version": "0.0.0",
   "description": "Build cross-browser extensions with SvelteKit",
-  "main": "adapter-browser-extension.js",
+  "main": "adapter-browser-extension.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
