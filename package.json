@@ -1,13 +1,13 @@
 {
-  "name": "instamail-extension",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "sveltekit-adapter-browser-extension",
+  "version": "0.0.0",
+  "description": "Build cross-browser extensions with SvelteKit",
+  "main": "adapter-browser-extension.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
     "sjcl": "^1.0.8",

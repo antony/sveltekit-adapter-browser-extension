@@ -24,7 +24,6 @@ export default function ({ pages = 'build', assets = pages, fallback } = {}) {
 	};
 
 	function hash_script (s) {
-		console.log('hash', s)
 		const hashed = sjcl.hash.sha256.hash(s);
 		return sjcl.codec.base64.fromBits(hashed);
 	}
@@ -60,8 +59,6 @@ export default function ({ pages = 'build', assets = pages, fallback } = {}) {
 
 			writeFileSync(join(assets, 'manifest.json'), generate_manifest(index.toString()))
 			writeFileSync(join(assets, 'background.js'), 'console.log("hello");')
-
-			// writeFileSync(indexPage, index.toString().replace('type="module"', `type="module" nonce="${nonce}"`))
 		}
 	};
 }
