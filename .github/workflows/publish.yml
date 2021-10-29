@@ -29,10 +29,11 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14
+          registry-url: https://registry.npmjs.org/
       - uses: pnpm/action-setup@v2.0.1
         with:
           version: latest
       - run: pnpm install --lockfile-only
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
