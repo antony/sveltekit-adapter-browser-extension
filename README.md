@@ -28,13 +28,16 @@ Install the adapter and `npm run build`. Go to your browser's extension page and
 
 If you get an error about `_app` being a disallowed folder, delete `_app` from within the build dir. It appears there sometimes and I'm not sure why - I'll fix as soon as possible!
 
+## Configuration
+
+To specify your own manifest information (it will be merged with the generated one), simply have a manifest file local within your app directory.
+
 ## Roadmap
 
 I am looking for help to build and maintain this module. Roadmap is:
 
 * Specifying the type of extension via config
 * Allowing icons and such to be driven by configuration
-* Bring-your-own manifest where you can merge a provided manifest with the generated one.
 
 ## License
 

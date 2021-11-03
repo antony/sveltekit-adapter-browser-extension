@@ -9,6 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@hapi/hoek": "^9.2.1",
     "cheerio": "^1.0.0-rc.10",
     "sjcl": "^1.0.8"
   }

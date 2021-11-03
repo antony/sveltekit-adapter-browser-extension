@@ -1,14 +1,20 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@hapi/hoek': ^9.2.1
   cheerio: ^1.0.0-rc.10
   sjcl: ^1.0.8
 
 dependencies:
+  '@hapi/hoek': 9.2.1
   cheerio: 1.0.0-rc.10
   sjcl: 1.0.8
 
 packages:
+
+  /@hapi/hoek/9.2.1:
+    resolution: {integrity: sha512-gfta+H8aziZsm8pZa0vj04KO6biEiisppNgA1kbJvFrrWu9Vm7eaUEy76DIxsuTaWvti5fkJVhllWc6ZTE+Mdw==}
+    dev: false
 
   /boolbase/1.0.0:
     resolution: {integrity: sha1-aN/1++YMUes3cl6p4+0xDcwed24=}
