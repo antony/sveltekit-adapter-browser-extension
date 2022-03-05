@@ -42,25 +42,29 @@ function load_manifest () {
 	return {}
 }
 
+
 /** @type {import('.')} */
 export default function ({ pages = 'build', assets = pages, fallback } = {}) {
 	return {
 		name: 'sveltekit-adapter-browser-extension',
 
-		async adapt({ utils }) {
+		async adapt(builder) {
+			if (!fallback && !builder.config.kit.prerender.default) {
+				builder.log.warn(
+					'You should set `config.kit.prerender.default` to `true` if no fallback is specified'
+				);
+			}
+
+
 			const provided_manifest = load_manifest()
 
-			utils.rimraf(assets)
-			utils.rimraf(pages)
+			builder.rimraf(assets)
+			builder.rimraf(pages)
 
-			utils.copy_static_files(assets)
-			utils.copy_client_files(assets)
+			builder.writeStatic(assets)
+			builder.writeClient(assets)
 
-			await utils.prerender({
-				fallback,
-				all: !fallback,
-				dest: pages
-			})
+			builder.writePrerendered(pages, { fallback });
 
 			const index_page = join(assets, 'index.html')
 			const index = readFileSync(index_page)
@@ -69,7 +73,7 @@ export default function ({ pages = 'build', assets = pages, fallback } = {}) {
 			const merged_manifest = applyToDefaults(generated_manifest, provided_manifest, { nullOverride: true })
 
 			writeFileSync(join(assets, manifest_filename), JSON.stringify(merged_manifest))
-			utils.rimraf(join(assets, '_app'))
+			builder.rimraf(join(assets, '_app'))
 		}
 	}
 }
