@@ -44,7 +44,7 @@ function generate_manifest (html, manifest_version) {
 			default_popup: 'index.html'
 		},
 		content_security_policy: {
-			"extension_pages": generate_csp(html)
+			"extension_pages": "script-src 'self'; object-src 'self'"
 		},
 		...project_placeholders
 	}
