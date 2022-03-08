@@ -4,7 +4,9 @@
 
 ## Usage
 
-Install with `npm i -D sveltekit-adapter-browser-extension`, then add the adapter to your `svelte.config.js`, and set the appDir to something without an underscore:
+Install with `npm i -D sveltekit-adapter-browser-extension`, then add the adapter to your `svelte.config.js`.
+
+Some additional configuration is required for this adapter to work - you need to (1) set ``appDir`` to something without an underscore and (2) tell kit to prerender its pages by default:
 
 ```js
 // svelte.config.js
@@ -13,7 +15,10 @@ import adapter from 'sveltekit-adapter-browser-extension';
 export default {
 	kit: {
 		adapter: adapter(),
-		appDir: 'ext' // This is important - chrome extensions can't handle the default _app directory name.
+		appDir: 'ext', // This is important - chrome extensions can't handle the default _app directory name.
+		prerender: {
+			default: true
+		}
 	}
 };
 ```
