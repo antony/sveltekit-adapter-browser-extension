@@ -14,7 +14,11 @@ import adapter from 'sveltekit-adapter-browser-extension';
 
 export default {
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+            manifest: {
+                // You can customize manifest here
+            }
+        }),
 		appDir: 'ext', // This is important - chrome extensions can't handle the default _app directory name.
 		prerender: {
 			default: true

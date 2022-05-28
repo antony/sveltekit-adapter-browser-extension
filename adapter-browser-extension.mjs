@@ -21,8 +21,8 @@ function generate_csp (html) {
 	return `script-src 'self' ${csp_hashes}; object-src 'self'`
 }
 
-function generate_manifest (html) {
-	return {
+function generate_manifest (html, manifest = {}) {
+	return {...{
 		browser_action: {
 			default_title: 'SvelteKit',
 			default_popup: 'index.html'
@@ -31,7 +31,7 @@ function generate_manifest (html) {
 		manifest_version: 2,
 		name: 'TODO',
 		version: '0.1'
-	}
+	}, ...manifest}
 }
 
 function load_manifest () {
@@ -44,7 +44,7 @@ function load_manifest () {
 
 
 /** @type {import('.')} */
-export default function ({ pages = 'build', assets = pages, fallback } = {}) {
+export default function ({ pages = 'build', assets = pages, manifest={}, fallback } = {}) {
 	return {
 		name: 'sveltekit-adapter-browser-extension',
 
@@ -69,7 +69,7 @@ export default function ({ pages = 'build', assets = pages, fallback } = {}) {
 			const index_page = join(assets, 'index.html')
 			const index = readFileSync(index_page)
 
-			const generated_manifest = generate_manifest(index.toString())
+			const generated_manifest = generate_manifest(index.toString(), manifest)
 			const merged_manifest = applyToDefaults(generated_manifest, provided_manifest, { nullOverride: true })
 
 			writeFileSync(join(assets, manifest_filename), JSON.stringify(merged_manifest))
