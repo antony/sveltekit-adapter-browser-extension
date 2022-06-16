@@ -72,7 +72,6 @@ function externalizeScript(html, assets) {
 	);
 }
 
-
 /** @type {import('.')} */
 export default function ({ pages = 'build', assets = pages, fallback, manifestVersion = 3 } = {}) {
 	return {
