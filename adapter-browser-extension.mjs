@@ -90,7 +90,6 @@ export default function ({ pages = 'build', assets = pages, fallback, manifestVe
 			builder.rimraf(assets)
 			builder.rimraf(pages)
 
-			builder.writeStatic(assets)
 			builder.writeClient(assets)
 
 			builder.writePrerendered(pages, { fallback });
