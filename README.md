@@ -1,6 +1,6 @@
 # sveltekit-adapter-browser-extension
 
-[Adapter](https://kit.svelte.dev/docs#adapters) for SvelteKit which turns your app into a cross-platform browser extension.
+[Adapter](https://kit.svelte.dev/docs/adapters) for SvelteKit which turns your app into a cross-platform browser extension.
 
 ## Usage
 
